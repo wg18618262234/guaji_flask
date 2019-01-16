@@ -3,8 +3,6 @@ from models import db
 # 1.创建表
 db.create_all()
 
-
-
 # # 2.增加记录
 # admin = Player_info(player_name='admin', player_hp='1000000', player_power='1')
 # guest = Player_info(player_name='guest', player_hp='1000', player_power='1000000')

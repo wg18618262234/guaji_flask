@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -8,16 +8,17 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
-    return '<h1>Welcome Guaji</h1>'
+    return render_template('index.html')
 
 
 @app.errorhandler(404)
 def errorhandler(error):
-    return render_template('page_not_found.html'),404
+    return render_template('page_not_found.html'), 404
+
 
 # 玩家信息添加
 @app.route('/player/info/add/', methods=['GET', 'POST'])
-def player_info_get():
+def player_info_add():
     if request.method == 'POST':
         from models import Player_info
         Pname = str(request.form.get('Pname'))
@@ -51,7 +52,7 @@ def player_info_show():
 
 # 怪物信息添加
 @app.route('/monster/info/add/', methods=['GET', 'POST'])
-def monster_info_get():
+def monster_info_add():
     if request.method == 'POST':
         from models import Monster_info
         Pname = str(request.form.get('Pname'))
