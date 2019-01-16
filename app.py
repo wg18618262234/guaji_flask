@@ -35,15 +35,21 @@ def player_info_add():
 def player_info_show():
     from models import Player_info
     if request.method == 'POST':
-        Pid = str(request.form.get('Pid'))
-        player_datas = db.session.query(Player_info).filter_by(id=Pid).all()
+        Pid = str(request.form.get('Pid') or '')
+        if Pid.strip() == '':
+            player_datas = db.session.query(Player_info).all()
+        else:
+            player_datas = db.session.query(Player_info).filter_by(id=Pid).all()
         result = []
         for player_data in player_datas:
             result.append(player_data.to_json())
         return jsonify(result)
     else:
-        Pid = str(request.args.get('Pid'))
-        player_datas = db.session.query(Player_info).filter_by(id=Pid).all()
+        Pid = str(request.args.get('Pid') or '')
+        if Pid.strip() == '':
+            player_datas = db.session.query(Player_info).all()
+        else:
+            player_datas = db.session.query(Player_info).filter_by(id=Pid).all()
         result = []
         for player_data in player_datas:
             result.append(player_data.to_json())
@@ -69,15 +75,21 @@ def monster_info_add():
 def monster_info_show():
     from models import Monster_info
     if request.method == 'POST':
-        Pid = str(request.form.get('Pid'))
-        player_datas = db.session.query(Monster_info).filter_by(id=Pid).all()
+        Pid = str(request.form.get('Pid') or '')
+        if Pid.strip() == '':
+            player_datas = db.session.query(Monster_info).all()
+        else:
+            player_datas = db.session.query(Monster_info).filter_by(id=Pid).all()
         result = []
         for player_data in player_datas:
             result.append(player_data.to_json())
         return jsonify(result)
     else:
-        Pid = str(request.args.get('Pid'))
-        player_datas = db.session.query(Monster_info).filter_by(id=Pid).all()
+        Pid = str(request.args.get('Pid') or '')
+        if Pid.strip() == '':
+            player_datas = db.session.query(Monster_info).all()
+        else:
+            player_datas = db.session.query(Monster_info).filter_by(id=Pid).all()
         result = []
         for player_data in player_datas:
             result.append(player_data.to_json())
