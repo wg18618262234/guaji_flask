@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>怪物信息添加</title>
+    <link href={{ url_for('static',filename='css/monster_info_add.css') }} rel="stylesheet">
+</head>
+<body>
+<div class="head">
+    <h2>怪物信息添加</h2>
+</div>
+<div class="info">
+    <form name="table" method="post" action="/monster/info/add">
+        <label for="Pname">怪物名称</label>
+        <input type="text" name="Pname" id="Pname"/>
+        <br/><br/>
+        <label for="Php">怪物血量</label>
+        <input type="text" name="Php" id="Php"/>
+        <br/><br/>
+        <label for="Ppower">怪物力量</label>
+        <input type="text" name="Ppower" id="Ppower"/>
+        <br/><br/>
+        <br/><br/>
+        <input type="submit" value="添加" class="sure">
+    </form>
+</div>
+</body>
+</html>
